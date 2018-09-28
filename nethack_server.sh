@@ -19,7 +19,8 @@ case "${OS}" in
       fi
     done
     [[ ! -z ${_S_LIST} ]] && sudo emerge -v $(echo ${_S_LIST}) ;;
-  'Ubuntu')
+  'Ubuntu') ;;
+  'Debian GNU/Linux')
     sudo apt-get update
     sudo apt-get install -y autoconf bison build-essential bsdmainutils \
       flex gcc git groff libncursesw5-dev libsqlite3-dev make ncurses-dev \
@@ -79,7 +80,8 @@ case "${OS}" in
     sudo sed -i -e '/^[ \t]only/s/only/#only/' /etc/xinetd.conf
     TELNETD="telnetd"
     XINETD="sudo /etc/init.d/xinetd restart" ;;
-  'Ubuntu')
+  'Ubuntu') ;;
+  'Debian GNU/Linux')
     tar cf - /lib/x86_64-linux-gnu/libncurses* |\
       sudo tar xf - -C /opt/nethack/${DOMAIN}/
     sudo chmod 777 /opt/nethack/${DOMAIN}/nh343/save
